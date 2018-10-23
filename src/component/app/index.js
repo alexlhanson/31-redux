@@ -9,20 +9,23 @@ const store = createAppStore();
 
 export default class App extends React.Component {
 
-  componentDidMount(){
+  componentDidMount() {
     store.subscribe(() => {
       console.log('__state__', store.getState());
     });
 
-    store.dispatch({type: null});
+    store.dispatch({ type: null });
   }
-  
+
   render() {
     return (
       <section id="redux-application">
         <Provider store={store}>
           <BrowserRouter>
-            <Route exact path='/' component={DashboardContainer} />
+            <div>
+              <h1>Budget Tracker</h1>
+              <Route exact path='/' component={DashboardContainer} />
+            </div>
           </BrowserRouter>
         </Provider>
       </section>
