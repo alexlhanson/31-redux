@@ -1,43 +1,43 @@
 import React from 'react';
-import uuid from 'uuid';
 
-export default class CategoryForm extends React.Component{
-  constructor(props){
+export default class CategoryForm extends React.Component {
+  constructor(props) {
     super(props);
 
-    this.state = {  
-      id: props.category ? props.category.id: uuid.v4(),
-      title: props.category ? props.category.title: '',
+    this.state = {
+      title: props.category ? props.category.title : '',
+      budget: props.category ? props.category.budget : '',
     }
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleComplete = this.handleComplete.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
-  handleChange(){
+  handleChange(e) {
     let name = e.target.name;
     let value = e.target.value;
-    this.setState({[name]: value});
+    this.setState({ [name]: value });
   };
 
-  handleComplete(){
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.onComplete(Object.assign({}, this.state));
+  };
 
-  }
-
-  render(){
+  render() {
     return (
       <div>
-        <form id="category-form"> onSubmit={this.handleComplete}
-        <label>
+        <form id="category-form" onSubmit={this.handleSubmit}>
+          <label>
             Title:
-            <input type="text" name="category" value={this.state.category} placeholder="Category" onChange={this.handleChange}/>
+            <input type="text" name="title" value={this.state.title} placeholder="Category" onChange={this.handleChange} />
           </label>
           <label>
             Content:
-            <input type="text" name="budget" value={this.state.budget} placeholder="Budget" onChange={this.handleChange}/>
+            <input type="text" name="budget" value={this.state.budget} placeholder="Budget" onChange={this.handleChange} />
           </label>
-          <button type="submit">Add Item</button>
+          <button type="submit">{this.props.buttonText}</button>
         </form>
       </div>
     )
