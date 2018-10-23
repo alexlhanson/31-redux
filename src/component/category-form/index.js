@@ -7,6 +7,9 @@ export default class CategoryForm extends React.Component {
     this.state = {
       title: props.category ? props.category.title : '',
       budget: props.category ? props.category.budget : '',
+      id: props.category ? props.category.id : '',
+      timestamp: props.category ? props.category.timestamp : '',
+
     }
 
     this.handleChange = this.handleChange.bind(this);

@@ -11,7 +11,6 @@ export const categoryCreate = category => {
 };
 
 export const categoryUpdate = category => {
-  console.log('updating', category);
   return {
     type: 'CATEGORY_UPDATE',
     payload: category,
@@ -19,7 +18,6 @@ export const categoryUpdate = category => {
 };
 
 export const categoryDestroy = category => {
-  console.log('destroying', category);
   
   return {
     type: 'CATEGORY_DESTROY',
