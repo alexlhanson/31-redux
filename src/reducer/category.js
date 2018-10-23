@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
       });
 
     case 'CATEGORY_DESTROY':
-      return state.filter(category => {category.id !== payload.id; });
+      return state.filter(category => {return category.id !== payload.id; });
 
     case 'CATEGORY_RESET':
       return initialState;
