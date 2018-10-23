@@ -20,7 +20,7 @@ class DashboardContainer extends React.Component {
         <ul>
           {this.props.categories.map(category => {
             return <li key={category.id}>
-              <CategoryItem category={category} destroy={this.props.categoryDestroy}>
+              <CategoryItem category={category} destroy={this.props.category}>
                 <CategoryForm buttonText="Update" category={category} onComplete={this.props.categoryUpdate}/>
               </CategoryItem>
             </li>
