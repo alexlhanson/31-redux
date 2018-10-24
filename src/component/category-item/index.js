@@ -1,4 +1,5 @@
 import React from 'react';
+import ExpenseForm from '../expense-form/';
 
 export default class CategoryItem extends React.Component{
   constructor(props){
