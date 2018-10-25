@@ -18,7 +18,7 @@ class DashboardContainer extends React.Component {
     return this.props.expenses[categoryId].map(expense => {
       return <li key={expense.id} >
               <ExpenseItem expense={expense} destroy={this.props.expenseDestroy} categoryId={categoryId}>
-                <ExpenseForm buttonText="Update" category={categoryId} onComplete={this.props.expenseUpdate} />
+                <ExpenseForm buttonText="Update" categoryId={categoryId} onComplete={this.props.expenseUpdate} expense={expense}/>
               </ExpenseItem>
             </li>
     })

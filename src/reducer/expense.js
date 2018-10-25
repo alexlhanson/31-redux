@@ -1,4 +1,5 @@
 let initialState = [];
+let updatedState = null;
 
 export default (state = initialState, action) => {
   let { type, payload } = action;
@@ -13,21 +14,26 @@ export default (state = initialState, action) => {
     case 'CATEGORY_DESTROY':
       let categoryState = state;
       delete categoryState[payload.id]
-      return {...categoryState}
+      return { ...categoryState }
 
     case 'EXPENSE_CREATE':
       let expenses = state[payload.categoryId];
-      return {...state, [payload.categoryId]: [ ...expenses, payload]};
+      return { ...state, [payload.categoryId]: [...expenses, payload] };
 
     case 'EXPENSE_DESTROY':
-      console.log(payload);
       let expensesList = state[payload.categoryId];
 
-      return expensesList.filter(expenses => {return expenses.id !== payload.expense.id; });
-
+      updatedState = expensesList.filter(expense => { return expense.id !== payload.expense.id; });
+      return { ...state, [payload.categoryId]: updatedState };
 
     case 'EXPENSE_UPDATE':
-
+      console.log('updating', payload);
+      updatedState = state[payload.categoryId].map(expense => {
+        if (expense.id === payload.id) {
+          return payload;
+        } else { return expense }
+      });
+      return {...state, [payload.categoryId]: updatedState};
 
     default: return state;
   }

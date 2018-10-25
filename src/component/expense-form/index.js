@@ -26,6 +26,7 @@ export default class ExpenseForm extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.props);
     this.props.onComplete(Object.assign({}, this.state));
   };
 
