@@ -3,12 +3,15 @@ Budget Tracker
 
 ## Description 
 - Uses React to create an Application for tracking budgets
-  - Application has a dashboard route
+  - `App` has a dashboard route
     - `/dashboard` for `Dashboard` component
-  - Dashboard component has child components for:
-    - `Category-Form` which adds new categories which has a child:
-      - `[Note-Item]` which is a category item, handles category delete, and has child for updating
+  - `Dashboard` component has children components for:
+    - `Category-Form` which adds new categories
+      - `[Note-Item]` which is a category item, handles category delete
         - `Category-Form` A form for updating categories.  It updates on submit.
+        - `ExpenseForm` for creating expenses
+          - `[ExpenseItem]` for listing of expenses under a category
+            - `ExpenseForm` for updating an expense
 
 ## Setup
 - Fork/clone git repository and run npm install in root directory
@@ -18,9 +21,11 @@ Budget Tracker
 ## Tools Used
 - React
 - Redux
+  - MiddleWare: Logger
 - Node
 - Webpack
 - Babel
+
 
 ### Credits
 
