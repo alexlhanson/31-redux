@@ -40,7 +40,8 @@ export default class dropzone extends React.Component {
     //TODO setstate
   }
 
-  render() {
+  render() //TODO add more to this
+  {
     let className = classToggler({
       'dropzone': true,
       'drop-ready': this.state.dropReady,
@@ -48,9 +49,10 @@ export default class dropzone extends React.Component {
 
     return (
       <div>
-        <p>Hello World</p>
+        
+        //addhandlers
+        {this.props.children}
       </div>
     );
   };
 };
-},

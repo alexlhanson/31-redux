@@ -21,7 +21,8 @@ Budget Tracker
 ## Tools Used
 - React
 - Redux
-  - MiddleWare: Logger
+  - Middleware: Logger
+  - Middleware: Validator
 - Node
 - Webpack
 - Babel
