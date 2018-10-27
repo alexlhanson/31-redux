@@ -21,11 +21,27 @@ Budget Tracker
 ## Tools Used
 - React
 - Redux
-  - MiddleWare: Logger
+  - Middleware: Logger
+  - Middleware: Validator
 - Node
 - Webpack
 - Babel
 
+## Test Coverage
+- Actions
+  - category
+  - expense
+- Reducers
+  - category
+  - expense
+- Components
+  - expense form
+  - category form
+  - expense item
+  - category item
+  - dashboard
+  - draggable
+  - droppable
 
 ### Credits
 

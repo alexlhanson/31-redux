@@ -15,7 +15,7 @@ export default class ExpenseForm extends React.Component {
 
   render() {
     return (
-      <div id="category-item">
+      <div id="expense-item">
         <button id="delete-button" onClick={this.handleClick}>x</button>
         <h4>{this.props.expense.title}</h4>
         <h5>${this.props.expense.budget}</h5>

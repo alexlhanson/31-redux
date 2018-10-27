@@ -32,13 +32,11 @@ export default class CategoryForm extends React.Component {
     return (
       <div>
         <form id="category-form" onSubmit={this.handleSubmit}>
-          <label>
-            Title:
-            <input type="text" name="title" value={this.state.title} placeholder="Category" onChange={this.handleChange} />
+          <label id="category-type">
+            <input type="text" name="title" value={this.state.title} placeholder="Budget Category" onChange={this.handleChange} />
           </label>
-          <label>
-            Content:
-            <input type="text" name="budget" value={this.state.budget} placeholder="Budget" onChange={this.handleChange} />
+          <label id="budget-amount">
+            <input type="text" name="budget" value={this.state.budget} placeholder="Budget Amount" onChange={this.handleChange} />
           </label>
           <button type="submit">{this.props.buttonText}</button>
         </form>

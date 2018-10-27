@@ -9,12 +9,6 @@ const store = createAppStore();
 
 export default class App extends React.Component {
 
-  componentDidMount() {
-    store.subscribe(() => {
-      console.log('__state__', store.getState());
-    });
-  }
-
   render() {
     return (
       <section id="redux-application">
