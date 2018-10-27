@@ -27,6 +27,21 @@ Budget Tracker
 - Webpack
 - Babel
 
+## Test Coverage
+- Actions
+  - category
+  - expense
+- Reducers
+  - category
+  - expense
+- Components
+  - expense form
+  - category form
+  - expense item
+  - category item
+  - dashboard
+  - draggable
+  - droppable
 
 ### Credits
 
