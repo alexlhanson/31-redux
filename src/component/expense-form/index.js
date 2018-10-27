@@ -33,14 +33,12 @@ export default class ExpenseForm extends React.Component{
   render() {
     return (
       <div>
-        <form id="category-form" onSubmit={this.handleSubmit}>
+        <form id="expense-form" onSubmit={this.handleSubmit}>
           <label>
-            Title:
-            <input type="text" name="title" value={this.state.title} placeholder="Category" onChange={this.handleChange} />
+            <input type="text" name="title" value={this.state.title} placeholder="Expensed Item" onChange={this.handleChange} />
           </label>
           <label>
-            Content:
-            <input type="text" name="budget" value={this.state.budget} placeholder="Budget" onChange={this.handleChange} />
+            <input type="text" name="budget" value={this.state.budget} placeholder="$ Amount" onChange={this.handleChange} />
           </label>
           <button type="submit">{this.props.buttonText}</button>
         </form>
