@@ -6,6 +6,7 @@ import CategoryForm from '../category-form';
 import CategoryItem from '../category-item';
 import ExpenseForm from '../expense-form';
 import ExpenseItem from '../expense-item';
+import Draggable from '../draggable';
 
 
 class DashboardContainer extends React.Component {
@@ -17,7 +18,7 @@ class DashboardContainer extends React.Component {
   _expenseItemMap(categoryId) {
     return this.props.expenses[categoryId].map(expense => {
       return <li key={expense.id} >
-        <Draggable>//TODO needs data to pass in 
+        <Draggable dataTransferItem={expense}>
           <ExpenseItem expense={expense} destroy={this.props.expenseDestroy} categoryId={categoryId}>
             <ExpenseForm buttonText="Update" categoryId={categoryId} onComplete={this.props.expenseUpdate} expense={expense} />
           </ExpenseItem>
@@ -37,7 +38,7 @@ class DashboardContainer extends React.Component {
         <ul>
           {this.props.categories.map(category => {
             return <li key={category.id}>
-              <CategoryItem category={category} destroy={this.props.categoryDestroy} >
+              <CategoryItem category={category} destroy={this.props.categoryDestroy} expenseDestroy={this.props.expenseDestroy} expenseCreate={this.props.expenseCreate}>
                 <CategoryForm buttonText="Update" category={category} onComplete={this.props.categoryUpdate} />
                 <ExpenseForm buttonText='Create' onComplete={this.props.expenseCreate} expenses={this.props.expenses[category.id]} categoryId={category.id} />
                 <ul>{this._expenseItemMap(category.id)}</ul>

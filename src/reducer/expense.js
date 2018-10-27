@@ -21,19 +21,20 @@ export default (state = initialState, action) => {
       return { ...state, [payload.categoryId]: [...expenses, payload] };
 
     case 'EXPENSE_DESTROY':
+      if (!payload.expense){payload.expense = {id: payload.id}};
+      payload.expense.id = payload.id;
       let expensesList = state[payload.categoryId];
 
       updatedState = expensesList.filter(expense => { return expense.id !== payload.expense.id; });
       return { ...state, [payload.categoryId]: updatedState };
 
     case 'EXPENSE_UPDATE':
-      console.log('updating', payload);
       updatedState = state[payload.categoryId].map(expense => {
         if (expense.id === payload.id) {
           return payload;
         } else { return expense }
       });
-      return {...state, [payload.categoryId]: updatedState};
+      return { ...state, [payload.categoryId]: updatedState };
 
     default: return state;
   }

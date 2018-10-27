@@ -1,6 +1,6 @@
 import React from 'react';
+import classToggler from '../../lib/util';
 
-import React from 'react';
 export default class dropzone extends React.Component {
 
   constructor(props) {
@@ -42,15 +42,14 @@ export default class dropzone extends React.Component {
 
   render() //TODO add more to this
   {
-    let className = classToggler({
-      'dropzone': true,
-      'drop-ready': this.state.dropReady,
-    });
+    // let className = classToggler({
+    //   'dropzone': true,
+    //   'drop-ready': this.state.dropReady,
+    // });
 
     return (
-      <div>
+      <div dropzone="true" onDragOver={this.handleDragOver} onDrop={this.handleDrop} onDragLeave={this.handleDragLeave} onDragEnter={this.handleDragEnter}>
         
-        //addhandlers
         {this.props.children}
       </div>
     );
